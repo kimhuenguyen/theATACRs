@@ -46,6 +46,12 @@ head(seqlengths(txs))
 # Annotate peaks with nearest gene information
 annotate_result <- annotatePeak(gr, TxDb = txs)
 
+# piechart of genomic annotation and distribution TF 
+plotAnnoPie(annotate_result)
+
+plotDistToTSS(annotate_result,
+              title="Distribution of transcription factor-binding loci\nrelative to TSS")
+
 # Convert annotated results to a dataframe
 annotate_df <- as.data.frame(annotate_result)
 
